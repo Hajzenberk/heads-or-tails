@@ -5,26 +5,50 @@ public class Main {
 
     public static void main(String[] args) {
 
-
         Random random = new Random();
-
         Scanner scanner = new Scanner(System.in);
 
-        //Random boolean for value true or false
+        //coin sides
+        String heads = "HEADS";
+        String tails = "TAILS";
+        String coinSide;
+
+        //random boolean for value true or false to simulate coin flip
         boolean isHeads = random.nextBoolean();
-
-        System.out.println("\nChoose heads or tails");
-        String userChoice = scanner.nextLine();
-        System.out.println("Your choice is " + userChoice);
-
-        //if statement to print the message for the user
         if (isHeads) {
-            System.out.println("\nHeads");
+            coinSide = heads;
         } else {
-            System.out.println("\nTails");
+            coinSide = tails;
+        }
+
+        //variables defined
+        String userChoice;
+        boolean isTrue;
+
+        do {
+            //user choice
+            System.out.println("\nChoose heads or tails");
+            userChoice = scanner.nextLine().toUpperCase();
+            isTrue = (userChoice.equals(heads) || userChoice.equals(tails));
+            if (!isTrue) {
+                System.out.println("Wrong, choose again");
+            }
+        }
+        while (!isTrue);
+
+        //message about user choice and roll
+        System.out.println("\nYour choice is " + userChoice);
+        System.out.println("You roll " + coinSide);
+
+        //message for win or not
+        if (userChoice.equals(coinSide)) {
+            System.out.println("Great, you won");
+        } else {
+            System.out.println("Sorry, you lost");
         }
 
         scanner.close();
+
 
     }
 
