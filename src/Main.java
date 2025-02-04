@@ -5,15 +5,16 @@ public class Main {
 
     public static void main(String[] args) {
 
+        //objects created
         Random random = new Random();
         Scanner scanner = new Scanner(System.in);
 
         //coin sides
-        String heads = "HEADS";
-        String tails = "TAILS";
+        String heads = "heads";
+        String tails = "tails";
         String coinSide;
 
-        //random boolean for value true or false to simulate coin flip
+        //random boolean to simulate coin flip
         boolean isHeads = random.nextBoolean();
         if (isHeads) {
             coinSide = heads;
@@ -25,10 +26,13 @@ public class Main {
         String userChoice;
         boolean isTrue;
 
+        //Welcome message
+        System.out.println("\nWelcome to the coin flip game");
+
         do {
             //user choice
             System.out.println("\nChoose heads or tails");
-            userChoice = scanner.nextLine().toUpperCase();
+            userChoice = scanner.nextLine().toLowerCase();
             isTrue = (userChoice.equals(heads) || userChoice.equals(tails));
             if (!isTrue) {
                 System.out.println("Wrong, choose again");
